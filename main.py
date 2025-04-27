@@ -6,6 +6,7 @@ from discord.ext import commands
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 import requests
 from io import BytesIO
+import os
 
 # إعداد البوت
 intents = discord.Intents.default()
@@ -79,6 +80,5 @@ async def on_member_join(member):
         print(f"❌ خطأ أثناء الترحيب: {e}")
 
         keep_alive()
-        import os
 
         bot.run(os.getenv("TOKEN"))
