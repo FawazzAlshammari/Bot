@@ -81,4 +81,7 @@ async def on_member_join(member):
 
         keep_alive()
 
+        import os
+
         bot.run(os.getenv("TOKEN"))
+
