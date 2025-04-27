@@ -1,4 +1,5 @@
 from keep_alive import keep_alive
+
 keep_alive()
 import discord
 from discord.ext import commands
@@ -11,9 +12,11 @@ intents = discord.Intents.default()
 intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
+
 @bot.event
 async def on_ready():
     print(f"✅ البوت شغال: {bot.user}")
+
 
 @bot.event
 async def on_member_join(member):
@@ -65,16 +68,17 @@ async def on_member_join(member):
             background.save(image_binary, 'PNG')
             image_binary.seek(0)
 
-            channel = discord.utils.get(member.guild.text_channels, name="الترحيب﹒﹢💡")
+            channel = discord.utils.get(member.guild.text_channels,
+                                        name="الترحيب﹒﹢💡")
             if channel:
                 await channel.send(
                     content=f"أهلاً وسهلاً بك {member.mention}🌹",
-                    file=discord.File(fp=image_binary, filename='welcome.png')
-                )
+                    file=discord.File(fp=image_binary, filename='welcome.png'))
 
     except Exception as e:
         print(f"❌ خطأ أثناء الترحيب: {e}")
-    
-        keep_alive() 
-        
-bot.run("MTM2NTc2NzM1NzE2MjcyMTQzMA.G4BYBT.VY9q_irg4eEyU86T1mx6htOFl6hHCV3jKba2vE")
+
+        keep_alive()
+        import os
+
+        bot.run(os.getenv("TOKEN"))
