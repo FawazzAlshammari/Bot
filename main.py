@@ -7,6 +7,9 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 import requests
 from io import BytesIO
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # إعداد البوت
 intents = discord.Intents.default()
